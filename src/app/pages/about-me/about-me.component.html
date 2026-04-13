@@ -1,0 +1,44 @@
+<div class="about-container">
+  <div class="profile-header">
+    <div class="profile-image-container">
+      <img src="assets/agent_profile.png" [alt]="agent.name" class="profile-image">
+    </div>
+    <div class="profile-info">
+      <h1>{{ agent.name }}</h1>
+      <p class="title">{{ agent.title }}</p>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-value">{{ agent.experience }}</span>
+          <span class="stat-label">{{ 'EXPERIENCE' | translate }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">500+</span>
+          <span class="stat-label">{{ 'PROPERTIES_SOLD' | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="bio-section">
+    <h2>{{ 'NAV_ABOUT' | translate }}</h2>
+    <p class="bio-text">{{ agent.bio }}</p>
+  </section>
+
+  <section class="specialties-section">
+    <h2>{{ 'MY_SPECIALTIES' | translate }}</h2>
+    <div class="specialties-grid">
+      <div class="specialty-card" *ngFor="let specialty of agent.specialties">
+        <div class="specialty-icon">{{ specialty.icon }}</div>
+        <h3>{{ specialty.title }}</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>{{ 'CTA_FIND_NEXT' | translate }}</h2>
+      <p>{{ 'CTA_GUIDE' | translate }}</p>
+      <a routerLink="/contact" class="btn-primary">{{ 'GET_IN_TOUCH' | translate }}</a>
+    </div>
+  </section>
+</div>

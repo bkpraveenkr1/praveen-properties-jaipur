@@ -1,5 +1,78 @@
-<section class="hero">
-  <h1>Your Dream Home Awaits</h1>
-  <p>Find the best properties in the most desirable locations.</p>
-  <a routerLink="/properties" class="btn">Browse Properties</a>
-</section>
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero" [style.backgroundImage]="'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(assets/hero_land.png)'">
+    <div class="hero-content">
+      <h1>{{ 'HERO_TITLE' | translate }}</h1>
+      <p>{{ 'HERO_SUBTITLE' | translate }}</p>
+      <div class="hero-btns">
+        <a routerLink="/properties" class="btn-primary">{{ 'BTN_VIEW_PLOTS' | translate }}</a>
+        <a routerLink="/contact" class="btn-secondary">{{ 'BTN_INQUIRE' | translate }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Project Section -->
+  <section class="featured-project">
+    <div class="section-badge">{{ 'FEATURED_BADGE' | translate }}</div>
+    <h2>{{ featuredColony.name }}</h2>
+    <p class="location-text"><i class="icon-map">📍</i> {{ featuredColony.location }}</p>
+    
+    <div class="project-details">
+      <div class="project-info">
+        <p class="description">{{ featuredColony.description }}</p>
+        <ul class="highlights">
+          <li *ngFor="let highlight of featuredColony.highlights">
+            <span class="check">✔</span> {{ highlight }}
+          </li>
+        </ul>
+      </div>
+      <div class="project-image">
+        <img src="assets/plot_sample.png" alt="Ghar Niwas Plots">
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Plots Grid -->
+  <section class="listings-section">
+    <div class="section-header">
+      <h2>{{ 'RECENT_OPPORTUNITIES' | translate }}</h2>
+      <p>{{ 'HAND_PICKED_PLOTS' | translate }}</p>
+    </div>
+
+    <div class="plots-grid">
+      <div class="plot-card" *ngFor="let plot of popularPlots">
+        <div class="plot-badge">{{ plot.feature }}</div>
+        <div class="plot-image-placeholder">
+          <img src="assets/plot_sample.png" alt="Plot thumbnail">
+        </div>
+        <div class="plot-body">
+          <h3>{{ plot.title }}</h3>
+          <p class="size"><span>📏</span> {{ plot.size }}</p>
+          <div class="plot-footer">
+            <span class="price">{{ plot.price }}</span>
+            <a [routerLink]="['/properties', plot.id]" class="view-btn">{{ 'DETAILS' | translate }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Invest Section -->
+  <section class="why-invest">
+    <h2>{{ 'WHY_PATRAKAR' | translate }}</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <h3>{{ 'BENEFIT_CONNECTED' | translate }}</h3>
+        <p>{{ 'BENEFIT_CONNECTED_DESC' | translate }}</p>
+      </div>
+      <div class="benefit-card">
+        <h3>{{ 'BENEFIT_DEVELOPING' | translate }}</h3>
+        <p>{{ 'BENEFIT_DEVELOPING_DESC' | translate }}</p>
+      </div>
+      <div class="benefit-card">
+        <h3>{{ 'BENEFIT_AMENITIES' | translate }}</h3>
+        <p>{{ 'BENEFIT_AMENITIES_DESC' | translate }}</p>
+      </div>
+    </div>
+  </section>
+</div>
