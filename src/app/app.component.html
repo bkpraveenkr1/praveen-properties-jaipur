@@ -1,12 +1,10 @@
 <nav class="navbar">
-  <div class="logo">
-    <img src="assets/logo.png" alt="Praveen Properties Jaipur Logo">
+  <div class="logo" routerLink="/">
+    <img src="assets/logo.png" alt="Praveen Properties Jaipur Logo" class="logo" />
   </div>
 
   <ul class="nav-links">
-    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ 'NAV_HOME' | translate
-        }}</a></li>
-    <li><a routerLink="/properties" routerLinkActive="active">{{ 'NAV_PROPERTIES' | translate }}</a></li>
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ 'NAV_PROPERTIES' | translate }}</a></li>
     <li><a routerLink="/about-me" routerLinkActive="active">{{ 'NAV_ABOUT' | translate }}</a></li>
     <li><a routerLink="/contact" routerLinkActive="active">{{ 'NAV_CONTACT' | translate }}</a></li>
   </ul>
@@ -25,15 +23,10 @@
 </main>
 
 <footer class="footer">
-  <p>&copy; 2026 Praveen Properties Jaipur. {{ 'FOOTER_RIGHTS' | translate }}</p>
+  <div class="footer-content">
+    <p>&copy; 2026 Praveen Properties Jaipur</p>
+    <p class="footer-note">Direct deals | No brokerage</p>
+  </div>
 </footer>
 
-<a href="https://wa.me/919784180199?text=Hello, I am interested in your property." class="whatsapp-float"
-  target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 32 32" class="whatsapp-icon">
-    <path
-      d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.475 2.025 7.775l-2.025 7.425 7.625-2c2.25 1.25 4.8 2 7.55 2 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 28.5c-2.437 0-4.738-.662-6.725-1.813l-.487-.275-4.5 1.175 1.2-4.388-.312-.5c-1.25-2.012-1.925-4.337-1.925-6.7 0-7.163 5.837-13 13-13s13 5.837 13 13-5.837 13-13 13zM22.9 19.337c-.387-.2-2.287-1.125-2.637-1.25-.363-.125-.625-.187-.887.213-.263.387-1.013 1.25-1.238 1.5-.225.263-.45.3-.837.1-.387-.2-1.637-.6-3.112-1.925-1.15-.1.175-3.088-3.088-3.088 0 0-.3-.387-.5-.738-.2-.35-.037-.538.163-.738.163-.163.387-.45.575-.675.2-.225.263-.387.387-.638.125-.263.063-.5-.037-.7-.1-.2-.887-2.125-1.212-2.925-.325-.775-.688-.675-.887-.688-.2 0-.413-.013-.625-.013s-.563.075-.863.387c-.3.325-1.137 1.113-1.137 2.713s1.163 3.138 1.325 3.35c.163.213 2.287 3.5 5.538 4.9 2.587 1.113 3.112.887 4.212.787 1.1-.1 2.287-.938 2.612-1.85.325-.913.325-1.7.225-1.863-.1-.163-.363-.263-.75-.463z"
-      fill="currentColor" />
-  </svg>
-  <span class="tooltip">Contact us</span>
-</a>
+<app-sticky-contact></app-sticky-contact>

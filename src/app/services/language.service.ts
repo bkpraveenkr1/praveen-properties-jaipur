@@ -11,13 +11,13 @@ export class LanguageService {
   private readonly translations: Record<string, Record<Language, string>> = {
     // Navigation
     'NAV_HOME': { EN: 'Home', HI: 'मुख्य पृष्ठ' },
-    'NAV_PROPERTIES': { EN: 'Properties', HI: 'प्लॉट्स और विला' },
+    'NAV_PROPERTIES': { EN: 'Projects', HI: 'प्रोजेक्ट्स' },
     'NAV_ABOUT': { EN: 'About Me', HI: 'मेरे बारे में' },
     'NAV_CONTACT': { EN: 'Contact', HI: 'संपर्क करें' },
 
     // Home Page
     'HERO_TITLE': { EN: 'Investment in Land is Investment in Future', HI: 'जमीन में निवेश, सुखद भविष्य का आधार' },
-    'HERO_SUBTITLE': { EN: 'Exclusive Plots at Colony Ghar Niwas, Patrakar Colony, Jaipur', HI: 'कॉलोनी घर निवास, पत्रकार कॉलोनी, जयपुर में शानदार प्लॉट्स' },
+    'HERO_SUBTITLE': { EN: "Discover premium, verified residential plots in Jaipur's most promising locations.", HI: 'जयपुर के प्रमुख और तेजी से विकसित हो रहे स्थानों में प्रीमियम, वेरिफाइड प्लॉट्स खोजें।' },
     'BTN_VIEW_PLOTS': { EN: 'View All Plots', HI: 'सभी प्लॉट्स देखें' },
     'BTN_INQUIRE': { EN: 'Inquire Now', HI: 'अभी जानकारी लें' },
     'FEATURED_BADGE': { EN: 'Featured Project', HI: 'मुख्य प्रोजेक्ट' },
@@ -31,6 +31,19 @@ export class LanguageService {
     'BENEFIT_DEVELOPING_DESC': { EN: 'Rapidly developing residential hub with high ROI potential.', HI: 'उच्च निवेश लाभ की संभावनाओं वाला विकसित क्षेत्र।' },
     'BENEFIT_AMENITIES': { EN: 'Amenities', HI: 'सुविधाएं' },
     'BENEFIT_AMENITIES_DESC': { EN: 'Proximity to top schools, hospitals, and shopping complexes.', HI: 'प्रमुख स्कूलों, अस्पतालों और शॉपिंग कॉम्प्लेक्स के पास।' },
+    'EXPLORE_PROJECTS': { EN: 'Explore Our Projects', HI: 'हमारे प्रोजेक्ट्स देखें' },
+    'EXPLORE_PROJECTS_DESC': { EN: "Exclusive land plot townships in Jaipur's prime locations", HI: 'जयपुर के प्रमुख स्थानों में एक्सक्लूसिव लैंड प्लॉट टाउनशिप' },
+    'STARTING_AT': { EN: 'Starting at', HI: 'शुरुआती कीमत' },
+    'VIEW_DETAILS': { EN: 'View Details', HI: 'विवरण देखें' },
+    'NEW_BADGE': { EN: 'NEW', HI: 'नया' },
+    'CALL_NOW': { EN: 'Call Now', HI: 'अभी कॉल करें' },
+    'WHATSAPP_US': { EN: 'WhatsApp', HI: 'व्हाट्सएप' },
+    'TRUST_EXPERT_TITLE': { EN: 'Local Jaipur Expert', HI: 'स्थानीय जयपुर विशेषज्ञ' },
+    'TRUST_EXPERT_DESC': { EN: "Deep knowledge of Jaipur's growing areas and JDA schemes.", HI: 'जयपुर के बढ़ते क्षेत्रों और JDA योजनाओं का गहरा ज्ञान।' },
+    'TRUST_DIRECT_TITLE': { EN: 'Direct Owner Deals', HI: 'सीधे मालिक से सौदे' },
+    'TRUST_DIRECT_DESC': { EN: 'Transparent pricing without middle-man markups.', HI: 'बिचौलियों के बिना पारदर्शी मूल्य।' },
+    'TRUST_CHARGES_TITLE': { EN: 'No Hidden Charges', HI: 'कोई छिपा शुल्क नहीं' },
+    'TRUST_CHARGES_DESC': { EN: 'Complete clarity on registry, development, and other costs.', HI: 'रजिस्ट्री, विकास और अन्य लागतों पर पूरी स्पष्टता।' },
 
     // About Me Page
     'EXPERIENCE': { EN: 'Experience', HI: 'अनुभव' },
