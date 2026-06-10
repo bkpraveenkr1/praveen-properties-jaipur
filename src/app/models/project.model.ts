@@ -17,4 +17,13 @@ export interface Project {
   features: string[]; // e.g. ["JDA Approved", "60ft Road", "Park Facing"]
   plots: Plot[];
   whyThisProject: string[];
+  
+  // Detailed metadata fields for screenshot layout
+  propertyType?: string;
+  totalArea?: string;
+  reraNo?: string;
+  propertyStatus?: string;
+  legality?: string;
+  projectStatus?: string;
 }
+

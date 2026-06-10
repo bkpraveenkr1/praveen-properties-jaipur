@@ -16,10 +16,6 @@ import { Project } from '../../models/project.model';
       <div class="card-content">
         <h3 class="project-name">{{ project.name }}</h3>
         <p class="project-location">📍 {{ project.location }}</p>
-        <div class="card-footer">
-          <span class="price-label">{{ 'STARTING_AT' | translate }}</span>
-          <span class="price-value">₹ {{ project.startingPrice }}</span>
-        </div>
         <a [routerLink]="['/project', project.id]" class="view-details-btn">{{ 'VIEW_DETAILS' | translate }}</a>
       </div>
     </div>
@@ -81,26 +77,6 @@ import { Project } from '../../models/project.model';
       margin-bottom: 20px;
     }
 
-    .card-footer {
-      display: flex;
-      flex-direction: column;
-      margin-top: auto;
-      margin-bottom: 20px;
-    }
-
-    .price-label {
-      font-size: 0.85rem;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .price-value {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #e91e63;
-    }
-
     .view-details-btn {
       display: block;
       text-align: center;
@@ -111,6 +87,7 @@ import { Project } from '../../models/project.model';
       border-radius: 8px;
       font-weight: 600;
       transition: background 0.2s;
+      margin-top: auto;
     }
 
     .view-details-btn:hover {

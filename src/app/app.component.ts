@@ -2,12 +2,11 @@ import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { LanguageService } from './services/language.service';
 import { TranslatePipe } from './pipes/translate.pipe';
-import { StickyContactComponent } from './components/sticky-contact/sticky-contact.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, TranslatePipe, StickyContactComponent],
+  imports: [RouterOutlet, RouterModule, TranslatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.scss'
 })

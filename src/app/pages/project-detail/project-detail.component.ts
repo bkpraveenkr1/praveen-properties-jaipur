@@ -3,47 +3,117 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { PROJECTS } from '../../data/projects';
 import { Project } from '../../models/project.model';
-import { PlotCardComponent } from '../../components/plot-card/plot-card.component';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, PlotCardComponent],
+  imports: [CommonModule, RouterModule],
   template: `
     <div class="project-detail-page" *ngIf="project">
-      <!-- Project Header -->
-      <section class="project-header">
+      <!-- Back Button -->
+      <div class="back-container">
         <div class="container">
           <a routerLink="/" class="back-link">← Back to Projects</a>
-          <h1 class="project-name">{{ project.name }}</h1>
-          <p class="project-location">📍 {{ project.location }}</p>
-          <div class="price-range">
-            Starting from <span class="price">₹ {{ project.startingPrice }}</span>
-          </div>
         </div>
-      </section>
+      </div>
 
-      <!-- Plots Listing -->
-      <section class="plots-section">
+      <!-- Project Overview Section -->
+      <section class="overview-section">
         <div class="container">
-          <div class="section-title">
-            <h2>Available Plots</h2>
-            <p>Select a plot to inquire about details and availability.</p>
-          </div>
+          <!-- Project Title (Uppercase, elegant) -->
+          <h1 class="project-title">{{ project.name | uppercase }}</h1>
           
-          <div class="plots-grid">
-            <app-plot-card 
-              *ngFor="let plot of paginatedPlots" 
-              [plot]="plot"
-              [projectName]="project.name">
-            </app-plot-card>
+          <!-- Gold Divider/Flourish -->
+          <div class="gold-divider">
+            <div class="line"></div>
+            <div class="ornament"></div>
+            <div class="line"></div>
           </div>
+
+          <!-- Overview Heading -->
+          <h2 class="overview-heading">Overview</h2>
           
-          <!-- Pagination -->
-          <div class="pagination" *ngIf="totalPages > 1">
-            <button class="page-btn" [disabled]="currentPage === 1" (click)="prevPage()">Previous</button>
-            <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
-            <button class="page-btn" [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+          <!-- Overview Description -->
+          <p class="overview-desc">{{ project.description }}</p>
+
+          <!-- Details Grid -->
+          <div class="details-grid">
+            <!-- Project Name -->
+            <div class="detail-item">
+              <div class="icon-box">❯</div>
+              <div class="detail-text">
+                <span class="detail-label">Project Name :</span>
+                <span class="detail-value">{{ project.name }}</span>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="detail-item">
+              <div class="icon-box">❯</div>
+              <div class="detail-text">
+                <span class="detail-label">Location :</span>
+                <span class="detail-value">{{ project.location }}</span>
+              </div>
+            </div>
+
+            <!-- Property Type -->
+            <div class="detail-item" *ngIf="project.propertyType">
+              <div class="icon-box">❯</div>
+              <div class="detail-text">
+                <span class="detail-label">Property Type :</span>
+                <span class="detail-value">{{ project.propertyType }}</span>
+              </div>
+            </div>
+
+            <!-- Property Status -->
+            <div class="detail-item" *ngIf="project.propertyStatus">
+              <div class="icon-box">❯</div>
+              <div class="detail-text">
+                <span class="detail-label">Property Status :</span>
+                <span class="detail-value">{{ project.propertyStatus }}</span>
+              </div>
+            </div>
+
+            <!-- Total Area -->
+            <div class="detail-item" *ngIf="project.totalArea">
+              <div class="icon-box">❯</div>
+              <div class="detail-text">
+                <span class="detail-label">Total Area :</span>
+                <span class="detail-value">{{ project.totalArea }}</span>
+              </div>
+            </div>
+
+            <!-- Legality -->
+            <div class="detail-item" *ngIf="project.legality">
+              <div class="icon-box">❯</div>
+              <div class="detail-text">
+                <span class="detail-label">Legality :</span>
+                <span class="detail-value">{{ project.legality }}</span>
+              </div>
+            </div>
+
+            <!-- RERA Registration No. -->
+            <div class="detail-item" *ngIf="project.reraNo">
+              <div class="icon-box">❯</div>
+              <div class="detail-text">
+                <span class="detail-label">RERA Registration No. :</span>
+                <span class="detail-value">{{ project.reraNo }}</span>
+              </div>
+            </div>
+
+            <!-- Project Status -->
+            <div class="detail-item" *ngIf="project.projectStatus">
+              <div class="icon-box">❯</div>
+              <div class="detail-text">
+                <span class="detail-label">Project Status -</span>
+                <span class="detail-value">{{ project.projectStatus }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enquiry Now CTA -->
+          <div class="enquiry-cta-container">
+            <button class="enquiry-btn" (click)="openEnquiryModal()">Enquiry Now</button>
           </div>
         </div>
       </section>
@@ -75,6 +145,35 @@ import { PlotCardComponent } from '../../components/plot-card/plot-card.componen
       
       <!-- Bottom CTA for Mobile -->
       <div class="bottom-cta-padding"></div>
+
+      <!-- Enquiry Modal Popup -->
+      <div class="modal-overlay" *ngIf="showEnquiryModal" (click)="closeEnquiryModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <button class="close-btn" (click)="closeEnquiryModal()">&times;</button>
+          <h3 class="modal-title">Enquire Now</h3>
+          <p class="modal-desc">Connect with us to get more details about <strong>{{ project.name }}</strong></p>
+          
+          <div class="contact-methods">
+            <!-- Call Option -->
+            <a href="tel:+91919784180199" class="contact-method call-method">
+              <span class="method-icon">📞</span>
+              <div class="method-details">
+                <span class="method-label">Call Us</span>
+                <span class="method-value">+91 97841 80199</span>
+              </div>
+            </a>
+
+            <!-- WhatsApp Option -->
+            <a [href]="getWhatsAppUrl()" target="_blank" class="contact-method whatsapp-method">
+              <span class="method-icon">💬</span>
+              <div class="method-details">
+                <span class="method-label">WhatsApp Chat</span>
+                <span class="method-value">Chat Live Now</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   `,
   styles: [`
@@ -84,65 +183,165 @@ import { PlotCardComponent } from '../../components/plot-card/plot-card.componen
       padding: 0 20px;
     }
 
-    .project-header {
-      padding: 40px 0;
-      background-color: #2b2b2b;
-      color: white;
+    .back-container {
+      padding: 20px 0 10px 0;
+      background-color: white;
     }
 
     .back-link {
-      color: #e91e63;
+      color: #0d4b75;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
-      display: block;
+      font-size: 0.95rem;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #002d4d;
+    }
+
+    .overview-section {
+      padding: 30px 0 60px 0;
+      background-color: white;
+      text-align: center;
+    }
+
+    .project-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #0d4b75;
+      letter-spacing: 1.5px;
+      margin: 0 0 15px 0;
+      font-family: 'Times New Roman', Times, serif, 'Inter', sans-serif;
+    }
+
+    /* Gold Flourish Divider */
+    .gold-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px auto 35px auto;
+      max-width: 500px;
+    }
+
+    .gold-divider .line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c5a880, transparent);
+      flex-grow: 1;
+    }
+
+    .gold-divider .ornament {
+      width: 80px;
+      height: 18px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' fill='none'%3E%3Cpath d='M10 10 C 30 2, 70 2, 90 10 C 70 18, 30 18, 10 10 Z' stroke='%23c5a880' stroke-width='1.5'/%3E%3Ccircle cx='50' cy='10' r='3' fill='%23c5a880'/%3E%3Cpath d='M40 10 C 45 6, 55 6, 60 10' stroke='%23c5a880' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .overview-heading {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0d4b75;
       margin-bottom: 20px;
     }
 
-    .project-name {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 5px;
+    .overview-desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
+      max-width: 850px;
+      margin: 0 auto 40px auto;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
-    .project-location {
-      font-size: 1.1rem;
-      opacity: 0.8;
-      margin-bottom: 25px;
-    }
-
-    .price-range {
-      font-size: 1.2rem;
-    }
-
-    .price-range .price {
-      font-weight: 800;
-      color: #e91e63;
-      font-size: 1.8rem;
-      margin-left: 10px;
-    }
-
-    .plots-section {
-      padding: 60px 0;
-      background-color: #fcfcfc;
-    }
-
-    .section-title {
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .plots-grid {
+    /* Details Grid */
+    .details-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px 30px;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      text-align: left;
     }
 
+    .detail-item {
+      display: flex;
+      align-items: stretch;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: border-color 0.2s;
+    }
+
+    .detail-item:hover {
+      border-color: #cbd5e1;
+    }
+
+    .icon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0d4b75;
+      color: white;
+      width: 42px;
+      min-width: 42px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .detail-text {
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .detail-label {
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .detail-value {
+      color: #475569;
+      font-weight: 500;
+    }
+
+    /* Enquiry Button */
+    .enquiry-cta-container {
+      margin-top: 40px;
+    }
+
+    .enquiry-btn {
+      background-color: #ffc107;
+      color: #212529;
+      border: none;
+      padding: 14px 45px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+      transition: all 0.2s ease;
+    }
+
+    .enquiry-btn:hover {
+      background-color: #e0a800;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+    }
+
+    .enquiry-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Why Us Section */
     .why-us-section {
       padding: 60px 0;
       background: white;
@@ -152,6 +351,7 @@ import { PlotCardComponent } from '../../components/plot-card/plot-card.componen
       margin-bottom: 30px;
       font-size: 1.8rem;
       font-weight: 800;
+      color: #0d4b75;
     }
 
     .features-grid {
@@ -164,26 +364,29 @@ import { PlotCardComponent } from '../../components/plot-card/plot-card.componen
       display: flex;
       gap: 15px;
       align-items: flex-start;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 10px;
+      padding: 18px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 4px solid #0d4b75;
     }
 
     .feature-item p {
       font-weight: 600;
       margin: 0;
-      color: #333;
+      color: #334155;
     }
 
+    /* Amenities Section */
     .amenities-section {
       padding: 60px 0;
-      background: #fcfcfc;
+      background: #f8fafc;
     }
 
     .amenities-section h2 {
       margin-bottom: 25px;
       font-size: 1.8rem;
       font-weight: 800;
+      color: #0d4b75;
     }
 
     .amenities-list {
@@ -194,61 +397,162 @@ import { PlotCardComponent } from '../../components/plot-card/plot-card.componen
 
     .amenity-tag {
       background: white;
-      border: 1px solid #ddd;
-      padding: 8px 18px;
+      border: 1px solid #e2e8f0;
+      padding: 10px 22px;
       border-radius: 50px;
       font-weight: 600;
-      color: #555;
+      color: #475569;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
 
     .bottom-cta-padding {
       height: 100px;
     }
 
-    .pagination {
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
       display: flex;
-      justify-content: center;
       align-items: center;
-      margin-top: 40px;
+      justify-content: center;
+      z-index: 2000;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      padding: 35px;
+      width: 90%;
+      max-width: 440px;
+      position: relative;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #94a3b8;
+      line-height: 1;
+      padding: 5px;
+      transition: color 0.2s;
+    }
+
+    .close-btn:hover {
+      color: #334155;
+    }
+
+    .modal-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #0d4b75;
+      margin: 0 0 10px 0;
+      text-align: center;
+    }
+
+    .modal-desc {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
       gap: 15px;
     }
 
-    .page-btn {
-      padding: 10px 20px;
-      background-color: #2b2b2b;
-      color: white;
-      border: none;
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 15px 20px;
       border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s;
+      text-decoration: none;
+      color: white;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     }
 
-    .page-btn:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
+    .contact-method:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.1);
     }
 
-    .page-btn:not(:disabled):hover {
-      background-color: #000;
+    .call-method {
+      background-color: #007bff;
     }
 
-    .page-info {
-      font-weight: 600;
-      color: #555;
+    .call-method:hover {
+      background-color: #0069d9;
+    }
+
+    .whatsapp-method {
+      background-color: #25d366;
+    }
+
+    .whatsapp-method:hover {
+      background-color: #218838;
+    }
+
+    .method-icon {
+      font-size: 1.6rem;
+    }
+
+    .method-details {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .method-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.85;
+    }
+
+    .method-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     @media (max-width: 768px) {
-      .project-name { font-size: 2rem; }
-      .plots-section, .why-us-section, .amenities-section { padding: 40px 0; }
+      .project-title { font-size: 2rem; }
+      .overview-section { padding: 20px 0 40px 0; }
+      .details-grid { grid-template-columns: 1fr; gap: 12px; }
+      .why-us-section, .amenities-section { padding: 40px 0; }
+      .overview-desc { text-align: left; }
     }
   `]
 })
 export class ProjectDetailComponent implements OnInit {
   project: Project | undefined;
-  
-  currentPage = 1;
-  pageSize = 6;
+  showEnquiryModal = false;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -259,26 +563,18 @@ export class ProjectDetailComponent implements OnInit {
     }
   }
 
-  get paginatedPlots() {
-    if (!this.project || !this.project.plots) return [];
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    return this.project.plots.slice(startIndex, startIndex + this.pageSize);
+  openEnquiryModal() {
+    this.showEnquiryModal = true;
   }
 
-  get totalPages() {
-    if (!this.project || !this.project.plots) return 0;
-    return Math.ceil(this.project.plots.length / this.pageSize);
+  closeEnquiryModal() {
+    this.showEnquiryModal = false;
   }
 
-  prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
-  }
-
-  nextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-    }
+  getWhatsAppUrl() {
+    if (!this.project) return 'https://wa.me/91919784180199';
+    const text = `Hi, I am interested in your project "${this.project.name}". Please provide more information about it.`;
+    return `https://wa.me/91919784180199?text=${encodeURIComponent(text)}`;
   }
 }
+
