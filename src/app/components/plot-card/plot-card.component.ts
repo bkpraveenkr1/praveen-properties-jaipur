@@ -31,7 +31,7 @@ import { Plot } from '../../models/project.model';
       </div>
       <div class="plot-footer" *ngIf="plot.status === 'Available'">
         <div class="action-buttons">
-          <a href="tel:+91919784180199" class="contact-button call-btn" aria-label="Call Now">
+          <a href="tel:+919784180199" class="contact-button call-btn" aria-label="Call Now">
             <span class="icon">📞</span>
             <span class="text">{{ 'CALL_NOW' | translate }}</span>
           </a>
@@ -171,6 +171,6 @@ export class PlotCardComponent {
 
   getWhatsappUrl(): string {
     const message = `Hi I am interested in Plot ${this.plot.id} in ${this.projectName}`;
-    return `https://wa.me/91919784180199?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/919784180199?text=${encodeURIComponent(message)}`;
   }
 }

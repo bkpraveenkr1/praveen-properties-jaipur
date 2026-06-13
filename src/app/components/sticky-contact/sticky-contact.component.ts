@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <div class="sticky-contact-container">
-      <a href="tel:+91919784180199" class="contact-button call-btn" aria-label="Call Now">
+      <a href="tel:+919784180199" class="contact-button call-btn" aria-label="Call Now">
         <span class="icon">📞</span>
         <span class="text">Call Now</span>
       </a>
@@ -80,5 +80,5 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class StickyContactComponent {
-  whatsappUrl = 'https://wa.me/91919784180199?text=Hi%20I%20am%20interested%20in%20your%20property';
+  whatsappUrl = 'https://wa.me/919784180199?text=Hi%20I%20am%20interested%20in%20your%20property';
 }

@@ -13,8 +13,11 @@ import { CommonModule } from '@angular/common';
         <h1>{{ 'HERO_TITLE' | translate }}</h1>
         <p class="subheading">{{ 'HERO_SUBTITLE' | translate }}</p>
         <div class="hero-actions">
-          <a href="tel:+91919784180199" class="cta-button primary-cta">{{ 'CALL_NOW' | translate }}</a>
-          <a href="https://wa.me/91919784180199?text=Hi%20I%20am%20interested%20in%20your%20property" 
+          <div class="call-cta-container">
+            <span class="call-label">{{ 'CALL_NOW' | translate }}</span>
+            <a href="tel:+919784180199" class="phone-link">+91 97841 80199</a>
+          </div>
+          <a href="https://wa.me/919784180199?text=Hi%20I%20am%20interested%20in%20your%20property" 
              target="_blank" class="cta-button secondary-cta">{{ 'WHATSAPP_US' | translate }}</a>
         </div>
       </div>
@@ -66,7 +69,51 @@ import { CommonModule } from '@angular/common';
       display: flex;
       gap: 15px;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
+    }
+
+    .call-cta-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 25px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      min-width: 180px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .call-cta-container:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .call-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2px;
+    }
+
+    .phone-link {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .phone-link:hover {
+      color: #ffeb3b;
     }
 
     .cta-button {
@@ -77,6 +124,9 @@ import { CommonModule } from '@angular/common';
       font-size: 1.1rem;
       transition: all 0.3s ease;
       min-width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .primary-cta {

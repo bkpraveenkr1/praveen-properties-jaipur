@@ -155,7 +155,7 @@ import { Project } from '../../models/project.model';
           
           <div class="contact-methods">
             <!-- Call Option -->
-            <a href="tel:+91919784180199" class="contact-method call-method">
+            <a href="tel:+919784180199" class="contact-method call-method">
               <span class="method-icon">📞</span>
               <div class="method-details">
                 <span class="method-label">Call Us</span>
@@ -572,9 +572,9 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   getWhatsAppUrl() {
-    if (!this.project) return 'https://wa.me/91919784180199';
+    if (!this.project) return 'https://wa.me/919784180199';
     const text = `Hi, I am interested in your project "${this.project.name}". Please provide more information about it.`;
-    return `https://wa.me/91919784180199?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/919784180199?text=${encodeURIComponent(text)}`;
   }
 }
 
