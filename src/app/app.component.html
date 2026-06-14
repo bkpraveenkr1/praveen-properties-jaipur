@@ -24,7 +24,41 @@
 
 <footer class="footer">
   <div class="footer-content">
-    <p>&copy; 2026 Praveen Properties Jaipur</p>
+    <p>&copy; 2026 Plot Sewa</p>
     <p class="footer-note">Direct deals | No brokerage</p>
   </div>
 </footer>
+
+<!-- Global Floating Enquiry Button -->
+<button class="global-enquiry-btn" (click)="openEnquiryModal()" aria-label="Enquire Now">
+  <span class="enquiry-icon">💬</span>
+  <span class="enquiry-text">{{ 'BTN_INQUIRE' | translate }}</span>
+</button>
+
+<!-- Global Enquiry Modal Popup -->
+<div class="modal-overlay" *ngIf="showEnquiryModal" (click)="closeEnquiryModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeEnquiryModal()">&times;</button>
+    <h3 class="modal-title">Enquire Now</h3>
+    <p class="modal-desc">Connect with us to get more details about our properties</p>
+    
+    <div class="contact-methods">
+      <!-- Call Option -->
+      <div class="contact-method call-method non-clickable">
+        <span class="method-icon">📞</span>
+        <div class="method-details">
+          <span class="method-label">Call Us</span>
+          <span class="method-value">+91 97841 80199</span>
+        </div>
+      </div>
+
+      <!-- WhatsApp Option -->
+      <a [href]="getWhatsAppUrl()" target="_blank" class="contact-method whatsapp-method">
+        <span class="method-icon">💬</span>
+        <div class="method-details">
+          <span class="method-value">WhatsApp</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

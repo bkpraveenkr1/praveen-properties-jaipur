@@ -156,3 +156,210 @@ main {
   70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
   100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+
+/* =============================================
+   Global Floating Enquiry Button
+   ============================================= */
+.global-enquiry-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #e6a817 0%, #c8860a 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(200, 134, 10, 0.45);
+  transition: all 0.3s ease;
+  animation: enquiryPulse 2.5s infinite;
+}
+
+.global-enquiry-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 28px rgba(200, 134, 10, 0.55);
+  background: linear-gradient(135deg, #f0b820 0%, #d49210 100%);
+}
+
+.global-enquiry-btn:active {
+  transform: scale(0.97);
+}
+
+.global-enquiry-btn .enquiry-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.global-enquiry-btn .enquiry-text {
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+@keyframes enquiryPulse {
+  0%   { box-shadow: 0 6px 20px rgba(200, 134, 10, 0.45); }
+  50%  { box-shadow: 0 6px 28px rgba(200, 134, 10, 0.7); }
+  100% { box-shadow: 0 6px 20px rgba(200, 134, 10, 0.45); }
+}
+
+/* On mobile — keep it compact (icon only) below 480px */
+@media (max-width: 480px) {
+  .global-enquiry-btn {
+    bottom: 90px; /* sit above the sticky contact bar */
+    right: 16px;
+    padding: 14px 16px;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+  }
+  .global-enquiry-btn .enquiry-text {
+    display: none;
+  }
+}
+
+/* =============================================
+   Global Enquiry Modal (used in AppComponent)
+   ============================================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 35px;
+  width: 90%;
+  max-width: 440px;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #94a3b8;
+  line-height: 1;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #334155;
+}
+
+.modal-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0d4b75;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.modal-desc {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.contact-method:not(.non-clickable):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+}
+
+.contact-method.non-clickable {
+  cursor: default;
+}
+
+.call-method {
+  background-color: #007bff;
+}
+
+.call-method:not(.non-clickable):hover {
+  background-color: #0069d9;
+}
+
+.whatsapp-method {
+  background-color: #25d366;
+}
+
+.whatsapp-method:hover {
+  background-color: #218838;
+}
+
+.method-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.method-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.method-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+
+.method-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+

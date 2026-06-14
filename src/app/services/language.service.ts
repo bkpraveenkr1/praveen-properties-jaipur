@@ -19,7 +19,7 @@ export class LanguageService {
     'HERO_TITLE': { EN: 'Investment in Land is Investment in Future', HI: 'जमीन में निवेश, सुखद भविष्य का आधार' },
     'HERO_SUBTITLE': { EN: "Discover premium, verified residential plots in Jaipur's most promising locations.", HI: 'जयपुर के प्रमुख और तेजी से विकसित हो रहे स्थानों में प्रीमियम, वेरिफाइड प्लॉट्स खोजें।' },
     'BTN_VIEW_PLOTS': { EN: 'View All Plots', HI: 'सभी प्लॉट्स देखें' },
-    'BTN_INQUIRE': { EN: 'Inquire Now', HI: 'अभी जानकारी लें' },
+    'BTN_INQUIRE': { EN: 'Enquire Now', HI: 'अभी जानकारी लें' },
     'FEATURED_BADGE': { EN: 'Featured Project', HI: 'मुख्य प्रोजेक्ट' },
     'RECENT_OPPORTUNITIES': { EN: 'Recent Opportunities', HI: 'नए अवसर' },
     'HAND_PICKED_PLOTS': { EN: 'Hand-picked plots for immediate possession', HI: 'तुरंत कब्जे के लिए चुनिंदा प्लॉट्स' },

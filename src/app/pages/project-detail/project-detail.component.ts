@@ -113,7 +113,7 @@ import { Project } from '../../models/project.model';
 
           <!-- Enquiry Now CTA -->
           <div class="enquiry-cta-container">
-            <button class="enquiry-btn" (click)="openEnquiryModal()">Enquiry Now</button>
+            <button class="enquiry-btn" (click)="openEnquiryModal()">Enquire Now</button>
           </div>
         </div>
       </section>
@@ -155,20 +155,19 @@ import { Project } from '../../models/project.model';
           
           <div class="contact-methods">
             <!-- Call Option -->
-            <a href="tel:+919784180199" class="contact-method call-method">
+            <div class="contact-method call-method non-clickable">
               <span class="method-icon">📞</span>
               <div class="method-details">
                 <span class="method-label">Call Us</span>
                 <span class="method-value">+91 97841 80199</span>
               </div>
-            </a>
+            </div>
 
             <!-- WhatsApp Option -->
             <a [href]="getWhatsAppUrl()" target="_blank" class="contact-method whatsapp-method">
               <span class="method-icon">💬</span>
               <div class="method-details">
-                <span class="method-label">WhatsApp Chat</span>
-                <span class="method-value">Chat Live Now</span>
+                <span class="method-value">WhatsApp</span>
               </div>
             </a>
           </div>
@@ -319,26 +318,28 @@ import { Project } from '../../models/project.model';
     }
 
     .enquiry-btn {
-      background-color: #ffc107;
-      color: #212529;
+      background: linear-gradient(135deg, #e6a817 0%, #c8860a 100%);
+      color: white;
       border: none;
       padding: 14px 45px;
       font-size: 1.1rem;
       font-weight: 700;
-      border-radius: 4px;
+      border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(200, 134, 10, 0.45);
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.3px;
     }
 
     .enquiry-btn:hover {
-      background-color: #e0a800;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+      background: linear-gradient(135deg, #f0b820 0%, #d49210 100%);
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 28px rgba(200, 134, 10, 0.55);
     }
 
     .enquiry-btn:active {
-      transform: translateY(0);
+      transform: scale(0.97);
     }
 
     /* Why Us Section */
@@ -488,16 +489,20 @@ import { Project } from '../../models/project.model';
       box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     }
 
-    .contact-method:hover {
+    .contact-method:not(.non-clickable):hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-method.non-clickable {
+      cursor: default;
     }
 
     .call-method {
       background-color: #007bff;
     }
 
-    .call-method:hover {
+    .call-method:not(.non-clickable):hover {
       background-color: #0069d9;
     }
 
@@ -554,7 +559,7 @@ export class ProjectDetailComponent implements OnInit {
   project: Project | undefined;
   showEnquiryModal = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');

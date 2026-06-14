@@ -7,7 +7,7 @@ export const PROJECTS: Project[] = [
     location: 'Bhated, Jaipur',
     description: 'Welcome to Riyasat Eco Park Township, where every day is a celebration of refined living. Discover a world of unmatched elegance, comfort, and serenity. Your journey to an extraordinary lifestyle begins here. Located in a prime area, our township offers seamless connectivity to the city\'s key destinations, educational institutions, healthcare facilities, and entertainment hubs. Enjoy the convenience of easy access to everything you need, while relishing the tranquility of your own private sanctuary.',
     startingPrice: '25 Lacs',
-    imageUrl: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800', // Plot/Land image
+    imageUrl: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
     isNew: true,
     features: ['JDA Approved', '60ft Road', 'Electricity & Water', 'Park Facing'],
     propertyType: 'Plotted Development',
@@ -16,6 +16,12 @@ export const PROJECTS: Project[] = [
     propertyStatus: 'JDA and RERA Approved',
     legality: '90 A Letter, Approved Map, Marketing Map',
     projectStatus: 'Ongoing',
+    images: [
+      '/assets/projects/riyasat-eco-park/gate.jpg',
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200',
+      'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=1200',
+      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200',
+    ],
     plots: [
       { id: '101', size: '100 Sq Yards', price: '25.5 Lacs', facing: 'East', status: 'Available' },
       { id: '102', size: '100 Sq Yards', price: '25 Lacs', facing: 'West', status: 'Available' },
@@ -47,6 +53,11 @@ export const PROJECTS: Project[] = [
     propertyStatus: 'JDA Approved',
     legality: '90 A Letter, Approved Map',
     projectStatus: 'Completed',
+    images: [
+      'https://images.unsplash.com/photo-1542332213-31f87348057f?w=1200',
+      'https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1200',
+      'https://images.unsplash.com/photo-1511497584788-876760111969?w=1200',
+    ],
     plots: [
       { id: 'G1', size: '120 Sq Yards', price: '15.6 Lacs', facing: 'East', status: 'Available' },
       { id: 'G2', size: '120 Sq Yards', price: '15 Lacs', facing: 'West', status: 'Sold' },
@@ -74,6 +85,11 @@ export const PROJECTS: Project[] = [
     propertyStatus: 'JDA Approved',
     legality: '90 A Letter, Approved Map',
     projectStatus: 'Completed',
+    images: [
+      'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=1200',
+      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200',
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200',
+    ],
     plots: [
       { id: 'R1', size: '111 Sq Yards', price: '20 Lacs', facing: 'North', status: 'Available' },
       { id: 'R2', size: '111 Sq Yards', price: '21 Lacs', facing: 'East', status: 'Available' },
