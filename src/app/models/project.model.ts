@@ -26,5 +26,10 @@ export interface Project {
   propertyStatus?: string;
   legality?: string;
   projectStatus?: string;
+  brochureUrl?: string;
+  layoutPlanUrl?: string;
+  reraUrl?: string;
+  marketingMapUrl?: string;
+  videoUrl?: string;
 }
 
