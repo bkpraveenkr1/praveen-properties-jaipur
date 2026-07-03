@@ -7,7 +7,7 @@ export const PROJECTS: Project[] = [
     location: 'Village- CHAKSU, Jaipur - 303901',
     description: 'Spanning into 133 bighas, Neelkanth Nagar is Jaipur’s largest township-a place inspired by Lord Shiva. Here, everyday life unfolds in a spiritual blessing, offering a blend of devotion and modern elegance. The township is fully connected to major areas of Jaipur. Neelkanth Nagar is fully secured by boundary walls and 24/7 CCTV surveillance, which will give you peace of mind that your loved ones are safe. Here, you will get luxurious amenities like a swimming pool, clubhouse, and sculptures inspired by Lord Shiva.',
     startingPrice: '',
-    imageUrl: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800',
+    imageUrl: 'assets/projects/neelkanth-nagar/images/main%20gate.jpeg',
     isNew: true,
     features: ['JDA Approved', '60ft Road', 'Electricity & Water', 'Park Facing'],
     propertyType: 'Plotted Development',
@@ -37,10 +37,10 @@ export const PROJECTS: Project[] = [
       'State-of-the-art facilities and beautiful landscaping.',
       'Gated community with 24/7 security.'
     ],
-    brochureUrl: 'assets/brochures/neelkanth-nagar-brochure.pdf',
-    layoutPlanUrl: 'assets/layout-plans/neelkanth-nagar-layout-plan.pdf',
-    reraUrl: 'assets/rera/neelkanth-nagar-rera.pdf',
-    marketingMapUrl: 'assets/marketing-maps/neelkanth-nagar-marketing-map.pdf',
+    brochureUrl: 'assets/projects/neelkanth-nagar/brochure.pdf',
+    layoutPlanUrl: 'assets/projects/neelkanth-nagar/layout-plan.pdf',
+    reraUrl: 'assets/projects/neelkanth-nagar/rera.pdf',
+    marketingMapUrl: 'assets/projects/neelkanth-nagar/marketing-map.pdf',
     videoUrl: 'https://youtu.be/kztiv639Rfc?si=EPvxGl9vEyM4qHZu'
   },
   {
@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
     location: 'Boyatwala (Loha Mandi), Jaipur',
     description: 'Eco-friendly plotted development , ideal for retirement homes and serene living.',
     startingPrice: '15 Lacs',
-    imageUrl: 'https://images.unsplash.com/photo-1542332213-31f87348057f?w=800',
+    imageUrl: 'assets/projects/aman-enclave/images/main%20gate.jpeg',
     isNew: false,
     features: ['Near NH-52', 'Street Lights', 'Community Hall', 'Temple'],
     propertyType: 'Plotted Development',
@@ -74,10 +74,10 @@ export const PROJECTS: Project[] = [
       'Immediate possession available.',
       'Direct deal from owner.'
     ],
-    brochureUrl: 'assets/brochures/aman-enclave-brochure.pdf',
-    layoutPlanUrl: 'assets/layout-plans/aman-enclave-layout-plan.jpeg',
-    reraUrl: 'assets/rera/aman-enclave-rera.pdf',
-    marketingMapUrl: 'assets/marketing-maps/aman-enclave.pdf',
+    brochureUrl: 'assets/projects/aman-enclave/brochure.pdf',
+    layoutPlanUrl: 'assets/projects/aman-enclave/layout-plan.jpeg',
+    reraUrl: 'assets/projects/aman-enclave/rera.pdf',
+    marketingMapUrl: 'assets/projects/aman-enclave/marketing-map.pdf',
     // videoUrl: 'https://youtu.be/08yTNf23e_o?si=qXFH-bOUM2Yri6eV'
   },
   {
@@ -111,10 +111,10 @@ export const PROJECTS: Project[] = [
       'Bank loan approved from major banks.',
       'Surrounded by developed colonies.'
     ],
-    brochureUrl: 'assets/brochures/Bhumija-Greens-brochure.pdf',
-    layoutPlanUrl: 'assets/layout-plans/bhumija-green-layout-plan.jpeg',
-    reraUrl: 'assets/rera/bhumija-green-rera.pdf',
-    marketingMapUrl: 'assets/marketing-maps/bhumija-green.jpg',
+    brochureUrl: 'assets/projects/bhumija-green/brochure.pdf',
+    layoutPlanUrl: 'assets/projects/bhumija-green/layout-plan.jpeg',
+    reraUrl: 'assets/projects/bhumija-green/rera.pdf',
+    marketingMapUrl: 'assets/projects/bhumija-green/marketing-map.jpg',
     videoUrl: 'https://youtu.be/08yTNf23e_o?si=qXFH-bOUM2Yri6eV'
   },
   {
@@ -123,7 +123,7 @@ export const PROJECTS: Project[] = [
     location: 'Village: Sarangpura, Teh: Sanganer, Jaipur',
     description: 'Situated in a fast-developing location, it is close to schools, markets, and daily conveniences, making it ideal for both living and investment. The project combines a serene lifestyle with strong future growth potential.',
     startingPrice: '20 Lacs',
-    imageUrl: 'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=800',
+    imageUrl: 'assets/projects/royal-residency-ph-1-ext/images/main%20gate.jpeg',
     isNew: true,
     features: ['Fast Development', 'Sewerage Line', 'Close to Jhotwara', 'Easy Loan'],
     propertyType: 'Plotted Development',
@@ -148,10 +148,10 @@ export const PROJECTS: Project[] = [
       'Bank loan approved from major banks.',
       'Surrounded by developed colonies.'
     ],
-    brochureUrl: 'assets/brochures/royal-residency-ph-1-ext.pdf',
-    layoutPlanUrl: 'assets/layout-plans/royal-residency-ph-1-ext.-layout-plan.pdf',
-    reraUrl: 'assets/rera/royal-residency-ph-1-ext.-rera.pdf',
-    marketingMapUrl: 'assets/marketing-maps/royal-residency-ph-1-ext.pdf',
+    brochureUrl: 'assets/projects/royal-residency-ph-1-ext/brochure.pdf',
+    layoutPlanUrl: 'assets/projects/royal-residency-ph-1-ext/layout-plan.pdf',
+    reraUrl: 'assets/projects/royal-residency-ph-1-ext/rera.pdf',
+    marketingMapUrl: 'assets/projects/royal-residency-ph-1-ext/marketing-map.pdf',
     videoUrl: 'https://youtu.be/YMRM8Hl_gFU?si=YZe66g-mqkthVNSh'
   }
 ];

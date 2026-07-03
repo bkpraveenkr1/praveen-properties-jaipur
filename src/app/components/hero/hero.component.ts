@@ -33,7 +33,7 @@ import { CommonModule } from '@angular/common';
       justify-content: center;
       text-align: center;
       color: white;
-      background: url('/assets/images/hero_land.png') center/cover no-repeat;
+      background: url('/assets/common/hero_land.png') center/cover no-repeat;
       padding: 0 20px;
     }
 
