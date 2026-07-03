@@ -2,7 +2,7 @@ import { Project } from '../models/project.model';
 
 export const PROJECTS: Project[] = [
   {
-    id: 'riyasat-eco-park',
+    id: 'neelkanth-nagar',
     name: 'Neelkanth Nagar',
     location: 'Village- CHAKSU, Jaipur - 303901',
     description: 'Spanning into 133 bighas, Neelkanth Nagar is Jaipur’s largest township-a place inspired by Lord Shiva. Here, everyday life unfolds in a spiritual blessing, offering a blend of devotion and modern elegance. The township is fully connected to major areas of Jaipur. Neelkanth Nagar is fully secured by boundary walls and 24/7 CCTV surveillance, which will give you peace of mind that your loved ones are safe. Here, you will get luxurious amenities like a swimming pool, clubhouse, and sculptures inspired by Lord Shiva.',
@@ -44,7 +44,7 @@ export const PROJECTS: Project[] = [
     videoUrl: 'https://youtu.be/kztiv639Rfc?si=EPvxGl9vEyM4qHZu'
   },
   {
-    id: 'green-enclave',
+    id: 'aman-enclave',
     name: 'Aman Enclave',
     location: 'Boyatwala (Loha Mandi), Jaipur',
     description: 'Eco-friendly plotted development , ideal for retirement homes and serene living.',
@@ -73,23 +73,28 @@ export const PROJECTS: Project[] = [
       'High growth potential area.',
       'Immediate possession available.',
       'Direct deal from owner.'
-    ]
+    ],
+    brochureUrl: 'assets/brochures/aman-enclave-brochure.pdf',
+    layoutPlanUrl: 'assets/layout-plans/aman-enclave-layout-plan.jpeg',
+    reraUrl: 'assets/rera/aman-enclave-rera.pdf',
+    marketingMapUrl: 'assets/marketing-maps/aman-enclave.pdf',
+    // videoUrl: 'https://youtu.be/08yTNf23e_o?si=qXFH-bOUM2Yri6eV'
   },
   {
-    id: 'ram-villa',
-    name: 'Ram Villa Township',
-    location: 'Kalwar Road, Jaipur',
-    description: 'Budget-friendly plots in one of JDA\'s fastest-growing sectors with superb accessibility.',
+    id: 'bhumija-green',
+    name: 'Bhumija Green ',
+    location: 'Village: Ninder, Teh: Rampura Dabri, Jaipur',
+    description: 'Bhumija Greens gives you the chance to own a piece of land in a peaceful and well-planned environment. It is created for people who value quality, freedom, and long-term growth. This is not just a place to buy land—it is a place to build your future and create a lasting legacy.',
     startingPrice: '20 Lacs',
     imageUrl: 'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=800',
     isNew: true,
     features: ['Fast Development', 'Sewerage Line', 'Close to Jhotwara', 'Easy Loan'],
     propertyType: 'Plotted Development',
-    totalArea: '50,000 Sq .Mtr',
-    reraNo: 'Not Applicable',
-    propertyStatus: 'JDA Approved',
-    legality: '90 A Letter, Approved Map',
-    projectStatus: 'Completed',
+    totalArea: '38,350 Sq. Yards',
+    reraNo: 'RAJ/P/2025/4362',
+    propertyStatus: 'JDA and RERA Approved',
+    legality: 'Layout Plan, RERA certificate',
+    projectStatus: 'Inprogress',
     images: [
       'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=1200',
       'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200',
@@ -105,6 +110,48 @@ export const PROJECTS: Project[] = [
       'Well-connected to city center via Kalwar Road.',
       'Bank loan approved from major banks.',
       'Surrounded by developed colonies.'
-    ]
+    ],
+    brochureUrl: 'assets/brochures/Bhumija-Greens-brochure.pdf',
+    layoutPlanUrl: 'assets/layout-plans/bhumija-green-layout-plan.jpeg',
+    reraUrl: 'assets/rera/bhumija-green-rera.pdf',
+    marketingMapUrl: 'assets/marketing-maps/bhumija-green.jpg',
+    videoUrl: 'https://youtu.be/08yTNf23e_o?si=qXFH-bOUM2Yri6eV'
+  },
+  {
+    id: 'royal-residency-ph-1-ext',
+    name: 'Royal Residency Ph-1 Ext ',
+    location: 'Village: Sarangpura, Teh: Sanganer, Jaipur',
+    description: 'Situated in a fast-developing location, it is close to schools, markets, and daily conveniences, making it ideal for both living and investment. The project combines a serene lifestyle with strong future growth potential.',
+    startingPrice: '20 Lacs',
+    imageUrl: 'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=800',
+    isNew: true,
+    features: ['Fast Development', 'Sewerage Line', 'Close to Jhotwara', 'Easy Loan'],
+    propertyType: 'Plotted Development',
+    totalArea: '30450 sqm.',
+    reraNo: 'RAJ/P/2026/4979',
+    propertyStatus: 'JDA and RERA Approved',
+    legality: '90 A Letter, Approved Map',
+    projectStatus: 'Inprogress',
+    images: [
+      'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?w=1200',
+      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200',
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200',
+    ],
+    plots: [
+      { id: 'R1', size: '111 Sq Yards', price: '20 Lacs', facing: 'North', status: 'Available' },
+      { id: 'R2', size: '111 Sq Yards', price: '21 Lacs', facing: 'East', status: 'Available' },
+      { id: 'R3', size: '111 Sq Yards', price: '20.5 Lacs', facing: 'West', status: 'Available' }
+    ],
+    whyThisProject: [
+      'Low entry price for investors.',
+      'Well-connected to city center via Kalwar Road.',
+      'Bank loan approved from major banks.',
+      'Surrounded by developed colonies.'
+    ],
+    brochureUrl: 'assets/brochures/royal-residency-ph-1-ext.pdf',
+    layoutPlanUrl: 'assets/layout-plans/royal-residency-ph-1-ext.-layout-plan.pdf',
+    reraUrl: 'assets/rera/royal-residency-ph-1-ext.-rera.pdf',
+    marketingMapUrl: 'assets/marketing-maps/royal-residency-ph-1-ext.pdf',
+    videoUrl: 'https://youtu.be/YMRM8Hl_gFU?si=YZe66g-mqkthVNSh'
   }
 ];
